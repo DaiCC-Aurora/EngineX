@@ -40,7 +40,7 @@ add_executable(
         include/ETime.h
         include/EVideo.h
         include/EVoice.h
-)
+        include/EEvent.h src/EEvent.cpp include/EWidget.h src/EWidget.cpp)
 
 include_directories(
         include/
