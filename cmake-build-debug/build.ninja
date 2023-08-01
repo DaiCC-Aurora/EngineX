@@ -182,6 +182,13 @@ build CMakeFiles/Engine.dir/src/EWidget.cpp.obj: CXX_COMPILER__Engine_Debug F$:/
   OBJECT_DIR = CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\Engine.dir\src
 
+build CMakeFiles/Engine.dir/example/Exam_Timer.cpp.obj: CXX_COMPILER__Engine_Debug F$:/proj/Engine/example/Exam_Timer.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles\Engine.dir\example\Exam_Timer.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IF:/proj/Engine/include
+  OBJECT_DIR = CMakeFiles\Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\Engine.dir\example
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Engine
@@ -190,7 +197,7 @@ build CMakeFiles/Engine.dir/src/EWidget.cpp.obj: CXX_COMPILER__Engine_Debug F$:/
 #############################################
 # Link the executable Engine.exe
 
-build Engine.exe: CXX_EXECUTABLE_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/EAction.cpp.obj CMakeFiles/Engine.dir/src/ECamera.cpp.obj CMakeFiles/Engine.dir/src/EColor.cpp.obj CMakeFiles/Engine.dir/src/EDebug.cpp.obj CMakeFiles/Engine.dir/src/EException.cpp.obj CMakeFiles/Engine.dir/src/EFile.cpp.obj CMakeFiles/Engine.dir/src/EFont.cpp.obj CMakeFiles/Engine.dir/src/EIcon.cpp.obj CMakeFiles/Engine.dir/src/EImage.cpp.obj CMakeFiles/Engine.dir/src/EMessagebox.cpp.obj CMakeFiles/Engine.dir/src/Engine.cpp.obj CMakeFiles/Engine.dir/src/EObject.cpp.obj CMakeFiles/Engine.dir/src/EString.cpp.obj CMakeFiles/Engine.dir/src/EText.cpp.obj CMakeFiles/Engine.dir/src/ETime.cpp.obj CMakeFiles/Engine.dir/src/EVideo.cpp.obj CMakeFiles/Engine.dir/src/EVoice.cpp.obj CMakeFiles/Engine.dir/src/EEvent.cpp.obj CMakeFiles/Engine.dir/src/EWidget.cpp.obj
+build Engine.exe: CXX_EXECUTABLE_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/EAction.cpp.obj CMakeFiles/Engine.dir/src/ECamera.cpp.obj CMakeFiles/Engine.dir/src/EColor.cpp.obj CMakeFiles/Engine.dir/src/EDebug.cpp.obj CMakeFiles/Engine.dir/src/EException.cpp.obj CMakeFiles/Engine.dir/src/EFile.cpp.obj CMakeFiles/Engine.dir/src/EFont.cpp.obj CMakeFiles/Engine.dir/src/EIcon.cpp.obj CMakeFiles/Engine.dir/src/EImage.cpp.obj CMakeFiles/Engine.dir/src/EMessagebox.cpp.obj CMakeFiles/Engine.dir/src/Engine.cpp.obj CMakeFiles/Engine.dir/src/EObject.cpp.obj CMakeFiles/Engine.dir/src/EString.cpp.obj CMakeFiles/Engine.dir/src/EText.cpp.obj CMakeFiles/Engine.dir/src/ETime.cpp.obj CMakeFiles/Engine.dir/src/EVideo.cpp.obj CMakeFiles/Engine.dir/src/EVoice.cpp.obj CMakeFiles/Engine.dir/src/EEvent.cpp.obj CMakeFiles/Engine.dir/src/EWidget.cpp.obj CMakeFiles/Engine.dir/example/Exam_Timer.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Engine.dir

@@ -22,6 +22,9 @@ add_executable(
         src/ETime.cpp
         src/EVideo.cpp
         src/EVoice.cpp
+        src/EEvent.cpp
+        src/EWidget.cpp
+
 
         include/EAction.h
         include/ECamera.h
@@ -40,7 +43,11 @@ add_executable(
         include/ETime.h
         include/EVideo.h
         include/EVoice.h
-        include/EEvent.h src/EEvent.cpp include/EWidget.h src/EWidget.cpp)
+        include/EEvent.h
+        include/EWidget.h
+
+
+        example/Exam_Timer.cpp)
 
 include_directories(
         include/
