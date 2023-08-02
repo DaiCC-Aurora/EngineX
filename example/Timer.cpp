@@ -15,7 +15,7 @@ void foo(int a) {
     std::cout << "Called foo, a = " << a << std::endl;
 }
 
-int main() {
+int _main() {
     auto t1 = new ETimer();
     t1->set_func(foo, 10);
     t1->start();

@@ -24,7 +24,7 @@ add_executable(
         src/EVoice.cpp
         src/EEvent.cpp
         src/EWidget.cpp
-
+        src/EKeyboard.cpp
 
         include/EAction.h
         include/ECamera.h
@@ -45,9 +45,10 @@ add_executable(
         include/EVoice.h
         include/EEvent.h
         include/EWidget.h
+        include/EKeyboard.h
 
-
-        example/Exam_Timer.cpp)
+        example/Timer.cpp
+        example/Hotkey.cpp)
 
 include_directories(
         include/
