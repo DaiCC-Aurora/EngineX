@@ -35,10 +35,9 @@ void HotkeyThread() {
     MSG msg = { 0 };
     while (GetMessage(&msg, NULL, 0, 0) != 0) {
         if (msg.message == WM_HOTKEY) {
-            cout << "热键被触发！" << endl;
+            cout << "htk！" << endl;
 
             // 设置标志为false，终止打印线程
-            isPrinting = false;
         }
     }
 
