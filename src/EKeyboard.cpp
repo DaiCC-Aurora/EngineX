@@ -28,14 +28,11 @@ namespace Engine {
             throw EException("Register Hotkey Error");
         }
 
+        MSG msg = {nullptr};
         m_thread = std::thread([&]() -> void {
-            while (true) {
-                MSG msg = {0};
-                GetMessage(&msg, nullptr, 0, 0);
-                if (msg.message == WM_HOTKEY) {
-                    if (msg.wParam == m_id) {
-                        m_func();
-                    }
+            while (GetMessage(&msg, nullptr, 0, 0) != 0) {
+                if (msg.message == WM_HOTKEY && msg.wParam == m_vk) {
+                    m_func();
                 }
             }
         });
