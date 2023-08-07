@@ -2,10 +2,14 @@
 #define EKeyboard_
 
 #include <thread>
+#include <utility>
+#include <vector>
 #include <functional>
 #include <windows.h>
 #include <EException.h>
 #include <EObject.h>
+
+#include <iostream>
 
 namespace Engine {
     /*
@@ -15,37 +19,32 @@ namespace Engine {
     class EHotkey : EObject {
     public:
         EHotkey();
-        EHotkey(int id, UINT fsModifiers, UINT vk);
-        template <typename F, typename... Args> explicit EHotkey(F func, Args &&... args);
-        template <typename F, typename... Args> explicit EHotkey(int id, UINT fsModifiers, UINT vk, F func, Args &&... args);
+        explicit EHotkey(std::vector<int> keys);
+        template <typename F, typename... Args> explicit EHotkey(F && func, Args &&... args);
+        template <typename F, typename... Args> explicit EHotkey(std::vector<int> keys, F && func, Args &&... args);
 
-        void set_hotkey(int id, UINT fsModifiers, UINT vk);
-        template <typename F, typename... Args> void set_func(F func, Args &&... args);
+        void set_keys(std::vector<int> keys);
+        template <typename F, typename... Args> void set_func(F && func, Args &&... args);
+        void start();
 
-        void run_hotkey();
-
-        ~EHotkey() override;
     private:
-        int m_id;
-        UINT m_fsModifiers, m_vk;
-        std::function<void()> m_func;
         std::thread m_thread;
+        std::function<void()> m_func;
+        std::vector<int> m_keys;
     };
 
     // ---------- EHotkey TEMPLATE ----------
-    template <typename F, typename... Args> EHotkey::EHotkey(F func, Args &&... args) :
+    template <typename F, typename... Args> EHotkey::EHotkey(F && func, Args &&... args) :
     m_func(std::bind(std::forward<F>(func), std::forward<Args>(args)...)),
-    m_id(0),
-    m_fsModifiers(),
-    m_vk() {}
+    m_thread(),
+    m_keys() {}
 
-    template <typename F, typename... Args> EHotkey::EHotkey(int id, UINT fsModifiers, UINT vk, F func, Args &&... args) :
-    m_id(id),
-    m_fsModifiers(fsModifiers),
-    m_vk(vk),
-    m_func(std::bind(std::forward<F>(func), std::forward<Args>(args)...)) {}
+    template <typename F, typename... Args> EHotkey::EHotkey(std::vector<int> keys, F && func, Args &&... args) :
+    m_func(std::bind(std::forward<F>(func), std::forward<Args>(args)...)),
+    m_keys(std::move(keys)),
+    m_thread() {}
 
-    template <typename F, typename... Args> void EHotkey::set_func(F func, Args &&... args) {
+    template <typename F, typename... Args> void EHotkey::set_func(F && func, Args &&... args) {
         m_func = std::bind(std::forward<F>(func), std::forward<Args>(args)...);
     }
 }
